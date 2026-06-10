@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Component</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Sidebar styles */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #80deea;
+            position: fixed;
+            left: -250px;
+            top: 0;
+            transition: left 0.3s ease-in-out;
+            padding-top: 60px;
+            overflow-y: auto;
+            box-shadow: 3px 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 15px;
+            color: #00796b;
+            text-decoration: none;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #004d40;
+            color: white;
+        }
+
+        .menu-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            background: transparent;
+            color: #00796b;
+            border: none;
+            z-index: 1001;
+        }
+
+        .menu-toggle:hover {
+            color: #004d40;
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu Toggle Button -->
+    <button class="menu-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-bars" id="menu-icon"></i>
+    </button>
+
+    <!-- Sidebar Component -->
+    <div class="sidebar" id="sidebar">
+        <a href="../dashboards/student_dashboard.html">
+            <i class="fas fa-home"></i> Back to Dashboard
+        </a>
+        <a href="profile.html">
+            <i class="fas fa-user"></i> Profile
+        </a>
+        <a href="attendance.html">
+            <i class="fas fa-check-circle"></i> Attendance
+        </a>
+        <a href="syllabus.html">
+            <i class="fas fa-book"></i> Syllabus
+        </a>
+        <a href="timetable.html">
+            <i class="fas fa-calendar-alt"></i> Timetable
+        </a>
+        <a href="assignments.html">
+            <i class="fas fa-pencil-alt"></i> Assignments
+        </a>
+        <a href="results.html">
+            <i class="fas fa-graduation-cap"></i> Results
+        </a>
+        <a href="question_papers.html">
+            <i class="fas fa-file-alt"></i> Question Papers
+        </a>
+        <a href="events.html">
+            <i class="fas fa-calendar-day"></i> Events
+        </a>
+        <a href="support.html">
+            <i class="fas fa-life-ring"></i> Support
+        </a>
+        <a href="notifications.html">
+            <i class="fas fa-bell"></i> Notifications
+        </a>
+        <a href="academic_calendar.html">
+            <i class="fas fa-calendar"></i> Academic Calendar
+        </a>
+        <a href="company_visit.html">
+            <i class="fas fa-briefcase"></i> Company Visits
+        </a>
+        <a href="settings.html">
+            <i class="fas fa-cog"></i> Settings
+        </a>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            const menuIcon = document.getElementById("menu-icon");
+            
+            if (sidebar.classList.contains("active")) {
+                sidebar.classList.remove("active");
+                menuIcon.classList.remove("fa-times");
+                menuIcon.classList.add("fa-bars");
+            } else {
+                sidebar.classList.add("active");
+                menuIcon.classList.remove("fa-bars");
+                menuIcon.classList.add("fa-times");
+            }
+        }
+    </script>
+</body>
+</html>

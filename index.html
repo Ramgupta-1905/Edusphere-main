@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edusphere - College Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        a {
+            text-decoration: none; 
+            border: none; 
+            color: inherit;
+        }
+
+        .edusphere {
+            font-size: 5em;
+            text-align: center;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, #e3f2fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            animation: titlePulse 3s ease-in-out infinite;
+        }
+
+        @keyframes titlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .quotes {
+            font-size: 1.8em;
+            text-align: center;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 60px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Container for cards */
+        .card-container {
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .student, .employee {
+            border: none;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            cursor: pointer;
+            padding: 30px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .student:hover, .employee:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .student {
+            height: 200px;
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .employee {
+            height: 200px;
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .student img, .employee img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 15px;
+            filter: brightness(1.1);
+        }
+
+        .s {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            margin-top: 15px;
+        }
+
+        .e {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            margin-top: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .edusphere {
+                font-size: 3em;
+            }
+
+            .quotes {
+                font-size: 1.3em;
+            }
+
+            .card-container {
+                gap: 30px;
+                flex-direction: column;
+            }
+
+            .student, .employee {
+                height: 180px;
+                width: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <p class="edusphere"><u>EDUSPHERE</u></p>
+    <p class="quotes">~Your future begins with your presence.</p>
+    
+    <div class="card-container">
+        <a href="pages/login/student_login.html">
+            <button class="student" type="button">
+                <img src="assets/images/student_icon.png" alt="Student Icon">
+                <span class="s">Student</span>
+            </button>
+        </a>
+        
+        <a href="pages/login/employee_login.html">
+            <button class="employee" type="button">
+                <img src="assets/images/employe_icon.png" alt="Employee Icon">
+                <span class="e">Employee</span>
+            </button>
+        </a>
+    </div>
+</body>
+</html>

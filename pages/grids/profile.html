@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            transition: margin-left 0.3s ease-in-out;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #80deea; /* Lighter shade of teal */
+            position: fixed;
+            left: -250px;
+            top: 0;
+            transition: left 0.3s ease-in-out;
+            padding-top: 60px;
+            overflow-y: auto;
+            box-shadow: 3px 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 15px;
+            color: #00796b;
+            text-decoration: none;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #004d40;
+        }
+
+        .menu-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            background: transparent;
+            color: #00796b;
+            border: none;
+            z-index: 1001;
+        }
+
+        .menu-toggle:hover {
+            color: #004d40;
+        }
+
+        .profile-container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            width: 85%;
+            max-width: 1100px;
+            padding: 40px;
+            margin: 20px;
+            overflow: hidden;
+            transition: margin-left 0.3s ease-in-out;
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            background: linear-gradient(135deg, #80deea, #004d40);
+            color: white;
+            border-radius: 15px;
+            padding: 40px 0;
+        }
+
+        .profile-header img {
+            border-radius: 50%;
+            width: 130px;
+            height: 130px;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+        }
+
+        .profile-header h1 {
+            margin: 0;
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        .profile-header p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+
+        .section {
+            margin-top: 30px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            color: #00796b;
+            margin-bottom: 15px;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .info-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px 0;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .info-card p {
+            margin: 8px 0;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .info-card p strong {
+            color: #00796b;
+            font-weight: 500;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 16px;
+            color: #00796b;
+        }
+
+        .footer a {
+            color: #00796b;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .profile-container {
+                width: 90%;
+                padding: 20px;
+            }
+
+            .profile-header img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .section h2 {
+                font-size: 20px;
+            }
+
+            .menu-toggle {
+                font-size: 35px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <i class="fas fa-bars menu-toggle" id="menu-icon" onclick="toggleSidebar()"></i>
+
+    <!-- Sidebar with links -->
+    <div class="sidebar" id="sidebar">
+        <a href="../dashboards/student_dashboard.html">Back to Dashboard</a>
+        <a href="profile.html">Profile</a>
+        <a href="attendance.html">Attendance</a>
+        <a href="syllabus.html">Syllabus</a>
+        <a href="timetable.html">Timetable</a>
+        <a href="assignments.html">Assignments</a>
+        <a href="results.html">Results</a>
+        <a href="question_papers.html">Question Papers</a>
+        <a href="events.html">Events</a>
+        <a href="support.html">Support</a>
+        <a href="notifications.html">Notifications</a>
+        <a href="academic_calendar.html">Academic Calendar</a>
+        <a href="company_visit.html">Company Visits</a>
+        <a href="settings.html">Settings</a>
+    </div>
+
+    <div class="profile-container">
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Profile Picture">
+            <h1>Ram Gupta</h1>
+            <p><strong>Roll No:</strong> 2300330120074</p>
+            <p><strong>Branch:</strong> Computer Science - B</p>
+            <p><strong>Semester:</strong> 3rd</p>
+        </div>
+
+        <!-- Academic Information Section -->
+        <div class="section">
+            <h2>Academic Information</h2>
+            <div class="info-card">
+                <p><strong>Course:</strong> Bachelor of Technology (B.Tech)</p>
+                <p><strong>Branch:</strong> Computer Science - B</p>
+                <p><strong>Enrollment No:</strong> 2021CS12345</p>
+                <p><strong>Login ID:</strong> ramgupta123</p>
+                <p><strong>College Email:</strong> ram.gupta@university.edu</p>
+                <p><strong>Personal Email:</strong> ramgupta@gmail.com</p>
+                <p><strong>Mobile Number:</strong> +91 9876543210</p>
+                <p><strong>Registration Date:</strong> 15th August 2021</p>
+                <p><strong>Course Duration:</strong> 4 years</p>
+            </div>
+        </div>
+
+        <!-- Personal Information Section -->
+        <div class="section">
+            <h2>Personal Information</h2>
+            <div class="info-card">
+                <p><strong>Father's Name:</strong> Rajesh Gupta</p>
+                <p><strong>Mother's Name:</strong> Sunita Gupta</p>
+                <p><strong>Date of Birth:</strong> 12th April 2001</p>
+                <p><strong>Aadhar No:</strong> 1234 5678 9123</p>
+                <p><strong>Permanent Address:</strong> 123, New Street, XYZ City, India</p>
+                <p><strong>Father's Mobile:</strong> +91 9876543210</p>
+                <p><strong>Mother's Mobile:</strong> +91 9123456789</p>
+                <p><strong>Gender:</strong> Male</p>
+                <p><strong>Category:</strong> General</p>
+                <p><strong>Religion:</strong> Hindu</p>
+                <p><strong>Nationality:</strong> Indian</p>
+                <p><strong>Marital Status:</strong> Single</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Student Profile - Ram Gupta</p>
+            <p><a href="mailto:ram.gupta@university.edu">Contact Support</a></p>
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            const content = document.querySelector(".profile-container");
+            sidebar.classList.toggle("active");
+            content.style.marginLeft = sidebar.classList.contains("active") ? '250px' : '0';
+        }
+    </script>
+</body>
+</html>
